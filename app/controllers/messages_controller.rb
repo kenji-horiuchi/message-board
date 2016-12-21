@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:edit, :update, :destroy]
   
-  def index
+  def index # 一覧画面を表示
      @message = Message.new
      # Messageを全て取得する。
      @messages = Message.all
