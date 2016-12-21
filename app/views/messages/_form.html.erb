@@ -13,9 +13,10 @@
   <% end %>
 
   名前:
-  <%= f.text_field :name %>
+  <%= f.text_field :name, :placeholder  => "Jon Bon Jovi" %>
 
   内容:
-  <%= f.text_field :body %>
-  <%= f.submit class: "btn btn-sm btn-primary" %>
+  <%= f.text_area :body, :rows  => "1", :placeholder  => "Cause it doesn't make a difference if we make it or not" %>
+  <%= f.submit class: "btn btn-sm btn-primary active" %>
+                         <!-- サイズ    カラ       ー-->                    
 <% end %>
