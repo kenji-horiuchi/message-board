@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:edit, :update, :destroy]
+  ## アクションでないメソッドはprivateメソッドにする必要がある
   
   def index # 一覧画面を表示
      @message = Message.new
@@ -20,7 +21,7 @@ class MessagesController < ApplicationController
   end
   
   private
-  def message_params
+  def message_params #ストロングパラメーター
     params.require(:message).permit(:name, :body)
   end
   ## ここまで

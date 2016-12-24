@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
+  # URIとHTTPメソッドの組み合わせによって、
+  # どのコントローラーのどのアクションを呼ぶのか
+  # get 'messages/index' #, to: 'messages#index'
+  # HTTPメソッド：GET
+  # URI: 'messages/index'
+  # コントローラ名
+  # アクション名：
   root 'messages#index'
+  # HTTPメソッド：GET
+  # URI: /
+  # コントローラ名: messages
+  # アクション名：index
   resources :messages , except: [:index, :new]
 
   # The priority is based upon order of creation: first created -> highest priority.

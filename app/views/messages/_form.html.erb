@@ -11,12 +11,11 @@
       </ul>
     </div>
   <% end %>
-
-  名前:
-  <%= f.text_field :name, :placeholder  => "Jon Bon Jovi" %>
-
+<div class="form-group">
+  <label for="message_name">名前</label>
+  <%= f.text_field :name, :class => 'form-control', :placeholder  => "Jon Bon Jovi" %>
+</div>
   内容:
   <%= f.text_area :body, :rows  => "1", :placeholder  => "Cause it doesn't make a difference if we make it or not" %>
   <%= f.submit class: "btn btn-sm btn-primary active" %>
-                         <!-- サイズ    カラ       ー-->                    
 <% end %>
