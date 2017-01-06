@@ -1,6 +1,5 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:edit, :update, :destroy]
-  ## アクションでないメソッドはprivateメソッドにする必要がある
   
   def index # 一覧画面を表示
      @message = Message.new
@@ -20,14 +19,6 @@ class MessagesController < ApplicationController
     end
   end
   
-  private
-  def message_params #ストロングパラメーター
-    params.require(:message).permit(:name, :body)
-  end
-  ## ここまで
-  def edit
-  end
-  
   def update
     if @message.update(message_params)
       # 保存に成功した場合はトップページへリダイレクト
@@ -42,12 +33,17 @@ class MessagesController < ApplicationController
     @message.destroy
     redirect_to root_path, notice: 'メッセージを削除しました'
   end
-
-  # 中略
-
+  
+  def edit
+  end
+  ## アクションでないメソッドはprivateメソッドにする必要がある
   private
-
-  # 中略
+  def message_params #ストロングパラメーター
+    # params は ActionController::Parametersのインスタンス
+    # paramsはハッシュのような情報を持っています。
+    params.require(:message).permit(:name, :body, :age)
+  end
+  ## ここまで
 
   def set_message
     @message = Message.find(params[:id])
